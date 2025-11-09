@@ -41,10 +41,6 @@
             "Codemonster\\Errors\\Tests\\": "tests/"
         }
     },
-    "files": [
-        "resources/views/errors/generic.php",
-        "resources/views/errors/debug.php"
-    ],
     "support": {
         "issues": "https://github.com/codemonster-ru/errors/issues",
         "source": "https://github.com/codemonster-ru/errors"
@@ -52,9 +48,11 @@
     "archive": {
         "exclude": [
             "/tests",
-            "/.github",
             "/phpunit.xml.dist",
             "/CHANGELOG.md"
+        ],
+        "include": [
+            "resources/"
         ]
     },
     "extra": {
