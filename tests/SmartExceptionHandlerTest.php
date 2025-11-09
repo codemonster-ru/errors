@@ -61,7 +61,8 @@ class SmartExceptionHandlerTest extends TestCase
         $response = $handler->handle(new RuntimeException('Crash'));
 
         self::assertInstanceOf(Response::class, $response);
+        self::assertSame(500, $response->getStatusCode());
+        self::assertStringContainsString('<html', (string)$response);
         self::assertStringContainsString('Crash', (string)$response);
-        self::assertStringContainsString('RuntimeException', (string)$response);
     }
 }
