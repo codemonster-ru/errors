@@ -1,0 +1,65 @@
+{
+    "name": "codemonster-ru/errors",
+    "description": "Universal exception and HTTP error handling package for PHP applications. Developed for the Codemonster ecosystem (Annabel framework).",
+    "type": "library",
+    "keywords": [
+        "php",
+        "framework",
+        "annabel",
+        "codemonster",
+        "errors",
+        "exceptions",
+        "http",
+        "handler"
+    ],
+    "homepage": "https://github.com/codemonster-ru/errors",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kirill Kolesnikov",
+            "email": "admin@codemonster.net",
+            "role": "Lead Developer"
+        }
+    ],
+    "scripts": {
+        "test": "phpunit --colors=always --testdox"
+    },
+    "require": {
+        "php": ">=8.2",
+        "codemonster-ru/http": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6 || ^10.5 || ^11.0 || ^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codemonster\\Errors\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Codemonster\\Errors\\Tests\\": "tests/"
+        }
+    },
+    "files": [
+        "resources/views/errors/generic.php",
+        "resources/views/errors/debug.php"
+    ],
+    "support": {
+        "issues": "https://github.com/codemonster-ru/errors/issues",
+        "source": "https://github.com/codemonster-ru/errors"
+    },
+    "archive": {
+        "exclude": [
+            "/tests",
+            "/.github",
+            "/phpunit.xml.dist",
+            "/CHANGELOG.md"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    }
+}
