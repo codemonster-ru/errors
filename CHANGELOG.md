@@ -2,6 +2,15 @@
 
 All notable changes to this package are documented in this file.
 
+## [1.1.0] — 2025-11-16
+
+### Changed
+
+-   Improved the generic error template: now only the standard, safe error message corresponding to the HTTP code is displayed.
+-   Removed the display of raw exception messages in page headers (title and h2) to improve security.
+-   Consistent message generation style: strict matching of the HTTP code with predefined text is used.
+-   Updated the footer in the template (Codemonster Errors).
+
 ## [1.0.0] — 2025-11-10
 
 ### Added
