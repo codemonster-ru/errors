@@ -7,22 +7,20 @@
 
 Universal package for handling exceptions and HTTP errors.
 
-## 📦 Installation
+## Installation
 
 ```bash
 composer require codemonster-ru/errors
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 It can be used as part of a framework or on its own in any PHP project.
 
 ### Example 1. Minimal use
 
 ```php
-use Codemonster\Errors\Contracts\ExceptionHandlerInterface;
 use Codemonster\Errors\Handlers\SmartExceptionHandler;
-use Codemonster\Http\Response;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -65,15 +63,38 @@ try {
 }
 ```
 
-## 🧱 Template structure
+## Template structure
 
 ```
 resources/views/errors/
-├── generic.php # error page for production
-└── debug.php # debug page for developers
+- generic.php # error page for production
+- debug.php # debug page for developers
+- 404.php # optional, per-status page
+- 500.php # optional, per-status page
 ```
 
-## 🧪 Testing
+Any 3-digit HTTP status file will be used when present.
+You can override the template base path with the third constructor argument.
+Constructor: `new SmartExceptionHandler(?callable $viewRenderer = null, bool $debug = false, ?string $templatePath = null)`
+
+Example:
+
+```php
+$handler = new SmartExceptionHandler(
+    viewRenderer: null,
+    debug: false,
+    templatePath: __DIR__ . '/resources/views/errors'
+);
+```
+
+## Behavior
+
+-   Uses `errors.debug` when `debug: true`.
+-   Uses `errors.<status>` when a status-specific template exists.
+-   Falls back to `errors.generic`, then to a plain-text response.
+-   In debug mode, renderer exceptions are rethrown.
+
+## Testing
 
 You can run tests with the command:
 
@@ -81,10 +102,10 @@ You can run tests with the command:
 composer test
 ```
 
-## 👨‍💻 Author
+## Author
 
 [**Kirill Kolesnikov**](https://github.com/KolesnikovKirill)
 
-## 📜 License
+## License
 
 [MIT](https://github.com/codemonster-ru/errors/blob/main/LICENSE)
