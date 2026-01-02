@@ -14,6 +14,7 @@ All notable changes to this package are documented in this file.
 -   Status template file tests now use a temp directory.
 -   README updated with behavior notes and template path example.
 -   PHPUnit configuration migrated; .phpunit.cache ignored.
+-   Updated dependency `codemonster-ru/http` to ^2.0.
 
 ## [1.1.0] - 2025-11-16
 
